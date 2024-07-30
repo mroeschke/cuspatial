@@ -34,7 +34,7 @@ class GeoDataFrame(cudf.DataFrame):
         data : A geopandas.GeoDataFrame object, a cudf.DataFrame object,
         or a dictionary of objects that can be converted to a GeoDataFrame.
         """
-        super().__init__()
+        super().__init__({}, index=cudf.Index([]))
         if isinstance(data, (gpGeoDataFrame, cudf.DataFrame)):
             self.index = data.index
             for col in data.columns:
